@@ -62,7 +62,7 @@ namespace DoAnCK
             this.btnBuble.Location = new System.Drawing.Point(261, 30);
             this.btnBuble.Name = "btnBuble";
             this.btnBuble.Size = new System.Drawing.Size(97, 20);
-            this.btnBuble.TabIndex = 2;
+            this.btnBuble.TabIndex = 1;
             this.btnBuble.TabStop = true;
             this.btnBuble.Text = "Buble sort";
             this.btnBuble.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -90,7 +90,7 @@ namespace DoAnCK
             this.btnQuick.Location = new System.Drawing.Point(710, 30);
             this.btnQuick.Name = "btnQuick";
             this.btnQuick.Size = new System.Drawing.Size(96, 20);
-            this.btnQuick.TabIndex = 2;
+            this.btnQuick.TabIndex = 3;
             this.btnQuick.TabStop = true;
             this.btnQuick.Text = "Quick sort";
             this.btnQuick.Theme = MetroFramework.MetroThemeStyle.Dark;
