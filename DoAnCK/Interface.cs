@@ -26,7 +26,7 @@ namespace DoAnCK
             HienThiCot();
             
         }
-        private Thread threadBuble;
+        private Thread threadBubble;
         private Thread threadMerge;
         private Thread threadQuick;
         private Thread threadEnable;
@@ -38,7 +38,7 @@ namespace DoAnCK
         {
             while (true)
             {
-                if (threadBuble.IsAlive == false && threadMerge.IsAlive == false && threadQuick.IsAlive == false)
+                if (threadBubble.IsAlive == false && threadMerge.IsAlive == false && threadQuick.IsAlive == false)
                 {
                     tbSortData.Enabled = true;
                     btnRandom.Enabled = true;
@@ -148,7 +148,7 @@ namespace DoAnCK
         {
             HienThiCot();
             DisableControl();
-            threadBuble = new Thread(() => Sortcontrol.BubleSort(data, lbCol));
+            threadBubble = new Thread(() => Sortcontrol.BubbleSort(data, lbCol));
             //threadMerge
             //threadQuick
             if (btnBuble.Checked)
@@ -156,8 +156,8 @@ namespace DoAnCK
                 btnBuble.Enabled = true;
                 btnMerge.Enabled = false;
                 btnQuick.Enabled = false;
-                threadBuble.IsBackground = true;
-                threadBuble.Start();
+                threadBubble.IsBackground = true;
+                threadBubble.Start();
             }
             else if (btnMerge.Checked)
             {
