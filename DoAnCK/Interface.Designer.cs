@@ -104,6 +104,7 @@ namespace DoAnCK
             this.tbSortData.Size = new System.Drawing.Size(230, 23);
             this.tbSortData.TabIndex = 3;
             this.tbSortData.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tbSortData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSortData_KeyDown);
             // 
             // btnRandom
             // 
@@ -113,6 +114,7 @@ namespace DoAnCK
             this.btnRandom.TabIndex = 4;
             this.btnRandom.Text = "Random";
             this.btnRandom.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnRandom.Click += new System.EventHandler(this.btnRandom_Click);
             // 
             // btnSort
             // 
@@ -122,6 +124,7 @@ namespace DoAnCK
             this.btnSort.TabIndex = 4;
             this.btnSort.Text = "Sort";
             this.btnSort.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // metroLabel1
             // 
@@ -173,6 +176,7 @@ namespace DoAnCK
         private MetroFramework.Controls.MetroButton btnRandom;
         private MetroFramework.Controls.MetroButton btnSort;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel[] lbCol = new MetroFramework.Controls.MetroLabel[MAXCOLUMN];
     }
 }
 
