@@ -11,11 +11,16 @@ using MetroFramework;
 
 namespace DoAnCK
 {
-    public partial class Form1 : Form
+    public partial class Interface : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public Interface()
         {
             InitializeComponent();
+        }
+
+        private void Interface_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
