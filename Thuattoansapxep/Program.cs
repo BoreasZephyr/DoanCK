@@ -13,7 +13,7 @@ namespace Thuattoansapxep
             }
 
         }
-        static void BubleSort(ref int[] a, int n)
+        static void BubbleSort(ref int[] a, int n)
         {
             bool swapped;
             do

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
+using System.Windows.Forms;
+using MetroFramework;
 using System.Drawing;
+using System.Threading;
 
 namespace DoAnCK
 {
@@ -75,6 +76,14 @@ namespace DoAnCK
                 ctrl[i].BackColor = Color.Teal;
             }
         }
+        public static void MergeSort(List<string> dulieu, MetroFramework.Controls.MetroLabel[] ctrl)
+        {
+
+        }
+        public static void QuickSort(List<string> dulieu, MetroFramework.Controls.MetroLabel[] ctrl)
+        {
+
+        }
 
         private static void SwapControl(MetroFramework.Controls.MetroLabel ctrl, Point p, int x, int sl)
         {
@@ -95,6 +104,27 @@ namespace DoAnCK
                 ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y + upDown);
                 Thread.Sleep(1);
             }
+        }
+        public static int Partition(List<string> dulieu, int l, int r, MetroFramework.Controls.MetroLabel[] ctrl)
+        {
+            int ndx = 1;
+            int pivot = int.Parse(dulieu[l]);
+            for (int i = l + 1; i <= r; i++)
+            {
+                if (int.Parse(dulieu[i]) > pivot)
+                {
+                    ndx++;
+                    Swap(dulieu, ndx, i);
+                }
+            }
+            Swap(dulieu, ndx, l);
+            return ndx;
+        }
+        public static void Swap(List<string> dulieu, int i, int j)
+        {
+            var t = dulieu[i];
+            dulieu[i] = dulieu[j];
+            dulieu[j] = t;
         }
     }
 }
