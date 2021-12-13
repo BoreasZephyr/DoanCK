@@ -30,6 +30,9 @@ namespace DoAnCK
         private void InitializeComponent()
         {
             this.panelAnimation = new MetroFramework.Controls.MetroPanel();
+            this.lb2 = new System.Windows.Forms.Label();
+            this.lb1 = new System.Windows.Forms.Label();
+            this.lb0 = new System.Windows.Forms.Label();
             this.btnBuble = new MetroFramework.Controls.MetroRadioButton();
             this.btnMerge = new MetroFramework.Controls.MetroRadioButton();
             this.btnRadix = new MetroFramework.Controls.MetroRadioButton();
@@ -38,11 +41,29 @@ namespace DoAnCK
             this.btnSort = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnStop = new MetroFramework.Controls.MetroButton();
+            this.lb3 = new System.Windows.Forms.Label();
+            this.lb4 = new System.Windows.Forms.Label();
+            this.lb5 = new System.Windows.Forms.Label();
+            this.lb6 = new System.Windows.Forms.Label();
+            this.lb7 = new System.Windows.Forms.Label();
+            this.lb8 = new System.Windows.Forms.Label();
+            this.lb9 = new System.Windows.Forms.Label();
+            this.panelAnimation.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAnimation
             // 
             this.panelAnimation.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.panelAnimation.Controls.Add(this.lb9);
+            this.panelAnimation.Controls.Add(this.lb8);
+            this.panelAnimation.Controls.Add(this.lb7);
+            this.panelAnimation.Controls.Add(this.lb6);
+            this.panelAnimation.Controls.Add(this.lb5);
+            this.panelAnimation.Controls.Add(this.lb4);
+            this.panelAnimation.Controls.Add(this.lb3);
+            this.panelAnimation.Controls.Add(this.lb2);
+            this.panelAnimation.Controls.Add(this.lb1);
+            this.panelAnimation.Controls.Add(this.lb0);
             this.panelAnimation.HorizontalScrollbarBarColor = true;
             this.panelAnimation.HorizontalScrollbarHighlightOnWheel = false;
             this.panelAnimation.HorizontalScrollbarSize = 10;
@@ -54,6 +75,45 @@ namespace DoAnCK
             this.panelAnimation.VerticalScrollbarBarColor = true;
             this.panelAnimation.VerticalScrollbarHighlightOnWheel = false;
             this.panelAnimation.VerticalScrollbarSize = 10;
+            // 
+            // lb2
+            // 
+            this.lb2.AutoSize = true;
+            this.lb2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2.ForeColor = System.Drawing.Color.White;
+            this.lb2.Location = new System.Drawing.Point(224, 438);
+            this.lb2.Name = "lb2";
+            this.lb2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb2.Size = new System.Drawing.Size(77, 19);
+            this.lb2.TabIndex = 2;
+            this.lb2.Text = "2";
+            this.lb2.Visible = false;
+            // 
+            // lb1
+            // 
+            this.lb1.AutoSize = true;
+            this.lb1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.ForeColor = System.Drawing.Color.White;
+            this.lb1.Location = new System.Drawing.Point(137, 438);
+            this.lb1.Name = "lb1";
+            this.lb1.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb1.Size = new System.Drawing.Size(77, 19);
+            this.lb1.TabIndex = 2;
+            this.lb1.Text = "1";
+            this.lb1.Visible = false;
+            // 
+            // lb0
+            // 
+            this.lb0.AutoSize = true;
+            this.lb0.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb0.ForeColor = System.Drawing.Color.White;
+            this.lb0.Location = new System.Drawing.Point(50, 438);
+            this.lb0.Name = "lb0";
+            this.lb0.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb0.Size = new System.Drawing.Size(77, 19);
+            this.lb0.TabIndex = 2;
+            this.lb0.Text = "0";
+            this.lb0.Visible = false;
             // 
             // btnBuble
             // 
@@ -148,6 +208,97 @@ namespace DoAnCK
             this.btnStop.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
+            // lb3
+            // 
+            this.lb3.AutoSize = true;
+            this.lb3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb3.ForeColor = System.Drawing.Color.White;
+            this.lb3.Location = new System.Drawing.Point(311, 438);
+            this.lb3.Name = "lb3";
+            this.lb3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb3.Size = new System.Drawing.Size(77, 19);
+            this.lb3.TabIndex = 2;
+            this.lb3.Text = "3";
+            this.lb3.Visible = false;
+            // 
+            // lb4
+            // 
+            this.lb4.AutoSize = true;
+            this.lb4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4.ForeColor = System.Drawing.Color.White;
+            this.lb4.Location = new System.Drawing.Point(398, 438);
+            this.lb4.Name = "lb4";
+            this.lb4.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb4.Size = new System.Drawing.Size(77, 19);
+            this.lb4.TabIndex = 2;
+            this.lb4.Text = "4";
+            this.lb4.Visible = false;
+            // 
+            // lb5
+            // 
+            this.lb5.AutoSize = true;
+            this.lb5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb5.ForeColor = System.Drawing.Color.White;
+            this.lb5.Location = new System.Drawing.Point(485, 438);
+            this.lb5.Name = "lb5";
+            this.lb5.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb5.Size = new System.Drawing.Size(77, 19);
+            this.lb5.TabIndex = 2;
+            this.lb5.Text = "5";
+            this.lb5.Visible = false;
+            // 
+            // lb6
+            // 
+            this.lb6.AutoSize = true;
+            this.lb6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb6.ForeColor = System.Drawing.Color.White;
+            this.lb6.Location = new System.Drawing.Point(572, 438);
+            this.lb6.Name = "lb6";
+            this.lb6.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb6.Size = new System.Drawing.Size(77, 19);
+            this.lb6.TabIndex = 2;
+            this.lb6.Text = "6";
+            this.lb6.Visible = false;
+            // 
+            // lb7
+            // 
+            this.lb7.AutoSize = true;
+            this.lb7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb7.ForeColor = System.Drawing.Color.White;
+            this.lb7.Location = new System.Drawing.Point(659, 438);
+            this.lb7.Name = "lb7";
+            this.lb7.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb7.Size = new System.Drawing.Size(77, 19);
+            this.lb7.TabIndex = 2;
+            this.lb7.Text = "7";
+            this.lb7.Visible = false;
+            // 
+            // lb8
+            // 
+            this.lb8.AutoSize = true;
+            this.lb8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb8.ForeColor = System.Drawing.Color.White;
+            this.lb8.Location = new System.Drawing.Point(746, 438);
+            this.lb8.Name = "lb8";
+            this.lb8.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb8.Size = new System.Drawing.Size(77, 19);
+            this.lb8.TabIndex = 2;
+            this.lb8.Text = "8";
+            this.lb8.Visible = false;
+            // 
+            // lb9
+            // 
+            this.lb9.AutoSize = true;
+            this.lb9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb9.ForeColor = System.Drawing.Color.White;
+            this.lb9.Location = new System.Drawing.Point(833, 438);
+            this.lb9.Name = "lb9";
+            this.lb9.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.lb9.Size = new System.Drawing.Size(77, 19);
+            this.lb9.TabIndex = 2;
+            this.lb9.Text = "9";
+            this.lb9.Visible = false;
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -173,6 +324,8 @@ namespace DoAnCK
             this.Text = "Thuật toán sắp xếp";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Interface_Load);
+            this.panelAnimation.ResumeLayout(false);
+            this.panelAnimation.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +343,16 @@ namespace DoAnCK
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel[] lbCol = new MetroFramework.Controls.MetroLabel[MAXCOLUMN];
         private MetroFramework.Controls.MetroButton btnStop;
+        private System.Windows.Forms.Label lb0;
+        private System.Windows.Forms.Label lb1;
+        private System.Windows.Forms.Label lb2;
+        private System.Windows.Forms.Label lb9;
+        private System.Windows.Forms.Label lb8;
+        private System.Windows.Forms.Label lb7;
+        private System.Windows.Forms.Label lb6;
+        private System.Windows.Forms.Label lb5;
+        private System.Windows.Forms.Label lb4;
+        private System.Windows.Forms.Label lb3;
     }
 }
 

@@ -186,6 +186,16 @@ namespace DoAnCK
                 btnBuble.Enabled = false;
                 btnMerge.Enabled = false;
                 btnRadix.Enabled = true;
+                lb0.Visible = true;
+                lb1.Visible = true;
+                lb2.Visible = true;
+                lb3.Visible = true;
+                lb4.Visible = true;
+                lb5.Visible = true;
+                lb6.Visible = true;
+                lb7.Visible = true;
+                lb8.Visible = true;
+                lb9.Visible = true;
                 threadRadix.IsBackground = true;
                 threadRadix.Start();
             }

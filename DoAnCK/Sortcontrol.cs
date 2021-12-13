@@ -175,6 +175,7 @@ namespace DoAnCK
             int[,] ctrlTT = new int[10, 9];
             string[] newData = new string[10];
             MetroFramework.Controls.MetroLabel[] newCtrl = new MetroFramework.Controls.MetroLabel[9];
+
             for (int i = 0; i < n; i++)
             {
                 ctrl[i].BackColor = Color.Green;
