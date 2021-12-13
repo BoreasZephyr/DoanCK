@@ -150,8 +150,6 @@ namespace DoAnCK
                 move.Start();
                 move.Join();
                 count[kq]++;
-                
-
             }
             for (int i = 0; i < data.Count; i++)
             {
