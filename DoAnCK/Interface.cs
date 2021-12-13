@@ -38,7 +38,7 @@ namespace DoAnCK
         {
             while (true)
             {
-                if (threadBubble.IsAlive == false && threadMerge.IsAlive == false && threadRadix.IsAlive == false) //&& threadQuick.IsAlive == false)
+                if (threadBubble.IsAlive == false && threadMerge.IsAlive == false && threadRadix.IsAlive == false) 
                 {
                     tbSortData.Enabled = true;
                     btnRandom.Enabled = true;
