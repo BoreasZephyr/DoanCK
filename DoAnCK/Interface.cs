@@ -14,7 +14,7 @@ namespace DoAnCK
 {
     public partial class Interface : MetroFramework.Forms.MetroForm
     {
-        private const int MAXCOLUMN = 10;
+        private const int MAXCOLUMN = 6;
         private List<string> data = new List<string>();
         private ToolTip toolTip = new ToolTip();
         public Interface()
@@ -28,7 +28,7 @@ namespace DoAnCK
         }
         private Thread threadBubble;
         private Thread threadMerge;
-        private Thread threadQuick;
+        private Thread threadRadix;
         private Thread threadEnable;
         private void Interface_Load(object sender, EventArgs e)
         {
@@ -38,14 +38,14 @@ namespace DoAnCK
         {
             while (true)
             {
-                if (threadBubble.IsAlive == false && threadMerge.IsAlive == false && threadQuick.IsAlive == false)
+                if (threadBubble.IsAlive == false && threadMerge.IsAlive == false && threadRadix.IsAlive == false) //&& threadQuick.IsAlive == false)
                 {
                     tbSortData.Enabled = true;
                     btnRandom.Enabled = true;
                     btnSort.Enabled = true;
                     btnBuble.Enabled = true;
                     btnMerge.Enabled = true;
-                    btnQuick.Enabled = true;
+                    btnRadix.Enabled = true;
                     break;
                 }
             }
@@ -108,7 +108,7 @@ namespace DoAnCK
             List<int> list = new List<int>();
             Randomlist.CreateRandom(list, 1, 50);
             Random rand = new Random();
-            int soCot = rand.Next(5, MAXCOLUMN);
+            int soCot = rand.Next(4, MAXCOLUMN);
             tbSortData.Text = "";
             for (int i = 1; i <= soCot; i++)
             {
@@ -135,9 +135,9 @@ namespace DoAnCK
 
             for (int i = 0; i < soCot; i++)
             {
-                if (!int.TryParse(data[i], out t) || int.Parse(data[i]) > 50 || soCot > MAXCOLUMN || soCot < 5)
+                if (!int.TryParse(data[i], out t) || int.Parse(data[i]) > 50 || soCot > MAXCOLUMN || soCot < 4)
                 {
-                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 5 và lớn nhất là 10", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 6", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -146,26 +146,48 @@ namespace DoAnCK
 
         private void btnSort_Click(object sender, EventArgs e)
         {
+            data = tbSortData.Text.Split(',').ToList();
+            int soCot = data.Count;
+            int t;
+
+            for (int i = 0; i < soCot; i++)
+            {
+                if (!int.TryParse(data[i], out t) || int.Parse(data[i]) > 50 || soCot > MAXCOLUMN || soCot<4)
+                {
+                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 6", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             HienThiCot();
             DisableControl();
             threadBubble = new Thread(() => Sortcontrol.BubbleSort(data, lbCol));
             //threadMerge
-            //threadQuick
+            threadMerge = new Thread(() => Sortcontrol.MergeSort(data, lbCol));
+            //threadRadix
+            threadRadix = new Thread(() => Sortcontrol.RadixSort(data, lbCol));
             if (btnBuble.Checked)
             {
                 btnBuble.Enabled = true;
                 btnMerge.Enabled = false;
-                btnQuick.Enabled = false;
+                btnRadix.Enabled = false;
                 threadBubble.IsBackground = true;
                 threadBubble.Start();
             }
             else if (btnMerge.Checked)
             {
-                //dieu chinh sau
+                btnBuble.Enabled = false;
+                btnMerge.Enabled = true;
+                btnRadix.Enabled = false;
+                threadMerge.IsBackground = true;
+                threadMerge.Start();
             }
-            else if (btnQuick.Checked)
+            else if (btnRadix.Checked)
             {
-                //dieu chinh sau
+                btnBuble.Enabled = false;
+                btnMerge.Enabled = false;
+                btnRadix.Enabled = true;
+                threadRadix.IsBackground = true;
+                threadRadix.Start();
             }
             threadEnable = new Thread(EnableControl);
             threadEnable.IsBackground = true;
@@ -176,6 +198,16 @@ namespace DoAnCK
         {
             AddRandomDataToTB();
             HienThiCot();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if (btnBuble.Checked)
+                threadBubble.Abort();
+            else if (btnMerge.Checked)
+                threadMerge.Abort();
+            else if (btnRadix.Checked)
+                threadRadix.Abort();
         }
     }
 }

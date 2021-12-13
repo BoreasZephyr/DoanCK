@@ -32,11 +32,12 @@ namespace DoAnCK
             this.panelAnimation = new MetroFramework.Controls.MetroPanel();
             this.btnBuble = new MetroFramework.Controls.MetroRadioButton();
             this.btnMerge = new MetroFramework.Controls.MetroRadioButton();
-            this.btnQuick = new MetroFramework.Controls.MetroRadioButton();
+            this.btnRadix = new MetroFramework.Controls.MetroRadioButton();
             this.tbSortData = new MetroFramework.Controls.MetroTextBox();
             this.btnRandom = new MetroFramework.Controls.MetroButton();
             this.btnSort = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.btnStop = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // panelAnimation
@@ -82,19 +83,19 @@ namespace DoAnCK
             this.btnMerge.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btnMerge.UseVisualStyleBackColor = true;
             // 
-            // btnQuick
+            // btnRadix
             // 
-            this.btnQuick.AutoSize = true;
-            this.btnQuick.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.btnQuick.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.btnQuick.Location = new System.Drawing.Point(710, 30);
-            this.btnQuick.Name = "btnQuick";
-            this.btnQuick.Size = new System.Drawing.Size(96, 20);
-            this.btnQuick.TabIndex = 3;
-            this.btnQuick.TabStop = true;
-            this.btnQuick.Text = "Quick sort";
-            this.btnQuick.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btnQuick.UseVisualStyleBackColor = true;
+            this.btnRadix.AutoSize = true;
+            this.btnRadix.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.btnRadix.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.btnRadix.Location = new System.Drawing.Point(710, 30);
+            this.btnRadix.Name = "btnRadix";
+            this.btnRadix.Size = new System.Drawing.Size(96, 20);
+            this.btnRadix.TabIndex = 3;
+            this.btnRadix.TabStop = true;
+            this.btnRadix.Text = "Radix sort";
+            this.btnRadix.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnRadix.UseVisualStyleBackColor = true;
             // 
             // tbSortData
             // 
@@ -130,12 +131,22 @@ namespace DoAnCK
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(650, 553);
+            this.metroLabel1.Location = new System.Drawing.Point(670, 553);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(395, 20);
             this.metroLabel1.TabIndex = 5;
             this.metroLabel1.Text = "Nhóm 18 - Nguyễn Minh Khang, Nguyễn Văn Sơn Tùng";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(497, 553);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 4;
+            this.btnStop.Text = "Stop";
+            this.btnStop.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // Interface
             // 
@@ -143,10 +154,11 @@ namespace DoAnCK
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 600);
             this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnSort);
             this.Controls.Add(this.btnRandom);
             this.Controls.Add(this.tbSortData);
-            this.Controls.Add(this.btnQuick);
+            this.Controls.Add(this.btnRadix);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.btnBuble);
             this.Controls.Add(this.panelAnimation);
@@ -171,12 +183,13 @@ namespace DoAnCK
         private MetroFramework.Controls.MetroPanel panelAnimation;
         private MetroFramework.Controls.MetroRadioButton btnBuble;
         private MetroFramework.Controls.MetroRadioButton btnMerge;
-        private MetroFramework.Controls.MetroRadioButton btnQuick;
+        private MetroFramework.Controls.MetroRadioButton btnRadix;
         private MetroFramework.Controls.MetroTextBox tbSortData;
         private MetroFramework.Controls.MetroButton btnRandom;
         private MetroFramework.Controls.MetroButton btnSort;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel[] lbCol = new MetroFramework.Controls.MetroLabel[MAXCOLUMN];
+        private MetroFramework.Controls.MetroButton btnStop;
     }
 }
 
