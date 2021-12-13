@@ -79,7 +79,92 @@ namespace DoAnCK
 
         public static void MergeSort(List<string> data, MetroFramework.Controls.MetroLabel[] ctrl)
         {
-            
+            int index = 0;
+            Thread.Sleep(1000);
+            for (int i = 1; i < data.Count; i++)
+            {
+                index = i;
+                ctrl[i].BackColor = Color.Red;
+                Thread threadUpDown = new Thread(() => MoveUpDown(ctrl[i], +2));
+                threadUpDown.IsBackground = true;
+                threadUpDown.Start();
+                while (threadUpDown.IsAlive)
+                {
+                    Thread.Sleep(10);
+                }
+                ctrl[i - 1].BackColor = Color.Green;
+                Thread.Sleep(700);
+                if (int.Parse(data[i]) < int.Parse(data[i - 1]))
+                {
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        ctrl[j].BackColor = Color.Green;
+                        Thread.Sleep(700);
+                        if (int.Parse(data[i]) > int.Parse(data[j]))
+                        {
+                            ctrl[j].BackColor = Color.Orange;
+                            break;
+                        }
+                        index = j;
+
+                        threadUpDown.Abort();
+
+                        Point p1 = new Point(ctrl[index].Location.X, ctrl[index].Location.Y);
+                        Point p2 = new Point(ctrl[i].Location.X, ctrl[i].Location.Y);
+
+                        Thread threadSwapA = new Thread(() => SwapControl(ctrl[i], p1, -2, 1));
+                        threadSwapA.IsBackground = true;
+                        threadSwapA.Start();
+
+                        Thread threadSwapB = new Thread(() => SwapControl(ctrl[index], p2, 2, 1));
+                        threadSwapB.IsBackground = true;
+                        threadSwapB.Start();
+
+                        while (threadSwapA.IsAlive && threadSwapB.IsAlive)
+                        {
+                            Thread.Sleep(10);
+                        }
+                        Thread.Sleep(500);
+                        ctrl[j].BackColor = Color.Orange;
+                    }
+                }
+                Merge(ref data, i, index);
+
+                threadUpDown = new Thread(() => MoveUpDown(ctrl[i], -2));
+                threadUpDown.Start();
+                while (threadUpDown.IsAlive)
+                {
+                    Thread.Sleep(10);
+                }
+                ctrl[i].BackColor = Color.Orange;
+                ctrl[i - 1].BackColor = Color.Orange;
+
+                MergeControl(ctrl, i, index);
+            }
+            for (int i = 0; i < data.Count; i++)
+            {
+                ctrl[i].BackColor = Color.Teal;
+            }
+        }
+
+        private static void Merge(ref List<string> data, int from, int to)
+        {
+            var value = data[from];
+            for (int i = from; i > to; i--)
+            {
+                data[i] = data[i - 1];
+            }
+            data[to] = value;
+        }
+
+        private static void MergeControl(MetroFramework.Controls.MetroLabel[] data, int from, int to)
+        {
+            var value = data[from];
+            for (int i = from; i > to; i--)
+            {
+                data[i] = data[i - 1];
+            }
+            data[to] = value;
         }
         public static void RadixSort(List<string> data, MetroFramework.Controls.MetroLabel[] ctrl)
         {
@@ -114,7 +199,7 @@ namespace DoAnCK
 
             for (int i = 0; i < 10; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(200);
                 for (int j = 0; j < count[i]; j++)
                 {
                     newCtrl[tt] = ctrl[ctrlTT[i, j]];
@@ -157,7 +242,7 @@ namespace DoAnCK
             }
             for (int i = 0; i < 10; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(200);
                 for (int j = 0; j < count[i]; j++)
                 {
                     ctrl[tt] = newCtrl[ctrlTT[i, j]];
@@ -185,81 +270,12 @@ namespace DoAnCK
         }
         private static void moveToCol(MetroFramework.Controls.MetroLabel ctrl, int col, int count)
         {
+            int x = 50 + col * (10 + 76);
             int y = 350 - 76 * count;
 
-            switch (col)
-            {
-                case 0:
-                    {
-                        ctrl.Location = new Point(50, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 1:
-                    {
-                        ctrl.Location = new Point(50 + 10 + 76, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 2:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 2 + 76 * 2, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 3:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 3 + 76 * 3, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 4:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 4 + 76 * 4, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 5:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 5 + 76 * 5, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 6:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 6 + 76 * 6, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 7:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 7 + 76 * 7, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 8:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 8 + 76 * 8, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-                case 9:
-                    {
-                        ctrl.Location = new Point(50 + 10 * 9 + 76 * 9, y);
-                        ctrl.BackColor = Color.Orange;
-                        Thread.Sleep(1);
-                    }
-                    break;
-            }
+            ctrl.Location = new Point(x, y);
+            ctrl.BackColor = Color.Orange;
+            Thread.Sleep(1);
         }
 
         private static void SwapControl(MetroFramework.Controls.MetroLabel ctrl, Point p, int x, int sl)
@@ -282,26 +298,26 @@ namespace DoAnCK
                 Thread.Sleep(1);
             }
         }
-        public static int Partition(List<string> dulieu, int l, int r, MetroFramework.Controls.MetroLabel[] ctrl)
+        public static int Partition(List<string> data, int l, int r, MetroFramework.Controls.MetroLabel[] ctrl)
         {
             int ndx = 1;
-            int pivot = int.Parse(dulieu[l]);
+            int pivot = int.Parse(data[l]);
             for (int i = l + 1; i <= r; i++)
             {
-                if (int.Parse(dulieu[i]) > pivot)
+                if (int.Parse(data[i]) > pivot)
                 {
                     ndx++;
-                    Swap(dulieu, ndx, i);
+                    Swap(data, ndx, i);
                 }
             }
-            Swap(dulieu, ndx, l);
+            Swap(data, ndx, l);
             return ndx;
         }
-        public static void Swap(List<string> dulieu, int i, int j)
+        public static void Swap(List<string> data, int i, int j)
         {
-            var t = dulieu[i];
-            dulieu[i] = dulieu[j];
-            dulieu[j] = t;
+            var t = data[i];
+            data[i] = data[j];
+            data[j] = t;
         }
     }
 }
