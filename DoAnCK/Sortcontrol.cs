@@ -265,6 +265,7 @@ namespace DoAnCK
             int x = 1050 / 2 - (76 * data.Count + 20 * (data.Count - 1)) / 2 - 76 - 20 + (76 + 20) * (stt + 1);
             int y = (400 / 2) - (76 / 2);
 
+            ctrl.Size = new Size(76, 76);
             ctrl.Location = new Point(x, y);
             ctrl.BackColor = Color.Orange;
             Thread.Sleep(500);
@@ -272,8 +273,9 @@ namespace DoAnCK
         private static void moveToCol(MetroFramework.Controls.MetroLabel ctrl, int col, int count)
         {
             int x = 50 + col * (10 + 76);
-            int y = 350 - 76 * count;
+            int y = 400 - 43 * count;
 
+            ctrl.Size = new Size(76, 38);
             ctrl.Location = new Point(x, y);
             ctrl.BackColor = Color.Orange;
             Thread.Sleep(1);

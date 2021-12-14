@@ -14,7 +14,7 @@ namespace DoAnCK
 {
     public partial class Interface : MetroFramework.Forms.MetroForm
     {
-        private const int MAXCOLUMN = 6;
+        private const int MAXCOLUMN = 7;
         private List<string> data = new List<string>();
         private ToolTip toolTip = new ToolTip();
         public Interface()
@@ -43,7 +43,7 @@ namespace DoAnCK
                     tbSortData.Enabled = true;
                     btnRandom.Enabled = true;
                     btnSort.Enabled = true;
-                    btnBuble.Enabled = true;
+                    btnBubble.Enabled = true;
                     btnMerge.Enabled = true;
                     btnRadix.Enabled = true;
                     break;
@@ -137,7 +137,7 @@ namespace DoAnCK
             {
                 if (!int.TryParse(data[i], out t) || int.Parse(data[i]) > 50 || soCot > MAXCOLUMN || soCot < 4)
                 {
-                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 6", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 7", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -154,7 +154,7 @@ namespace DoAnCK
             {
                 if (!int.TryParse(data[i], out t) || int.Parse(data[i]) > 50 || soCot > MAXCOLUMN || soCot<4)
                 {
-                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 6", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Lỗi!\n- Dữ liệu là các ố nguyên được phân tách bởi dấu phẩy\n- Mỗi con số không lớn hơn 50\n- Số lượng các con số tối thiểu là 4 và lớn nhất là 7", "Interface", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -165,25 +165,45 @@ namespace DoAnCK
             threadMerge = new Thread(() => Sortcontrol.MergeSort(data, lbCol));
             //threadRadix
             threadRadix = new Thread(() => Sortcontrol.RadixSort(data, lbCol));
-            if (btnBuble.Checked)
+            if (btnBubble.Checked)
             {
-                btnBuble.Enabled = true;
+                btnBubble.Enabled = true;
                 btnMerge.Enabled = false;
                 btnRadix.Enabled = false;
+                lb0.Visible = false;
+                lb1.Visible = false;
+                lb2.Visible = false;
+                lb3.Visible = false;
+                lb4.Visible = false;
+                lb5.Visible = false;
+                lb6.Visible = false;
+                lb7.Visible = false;
+                lb8.Visible = false;
+                lb9.Visible = false;
                 threadBubble.IsBackground = true;
                 threadBubble.Start();
             }
             else if (btnMerge.Checked)
             {
-                btnBuble.Enabled = false;
+                btnBubble.Enabled = false;
                 btnMerge.Enabled = true;
                 btnRadix.Enabled = false;
+                lb0.Visible = false;
+                lb1.Visible = false;
+                lb2.Visible = false;
+                lb3.Visible = false;
+                lb4.Visible = false;
+                lb5.Visible = false;
+                lb6.Visible = false;
+                lb7.Visible = false;
+                lb8.Visible = false;
+                lb9.Visible = false;
                 threadMerge.IsBackground = true;
                 threadMerge.Start();
             }
             else if (btnRadix.Checked)
             {
-                btnBuble.Enabled = false;
+                btnBubble.Enabled = false;
                 btnMerge.Enabled = false;
                 btnRadix.Enabled = true;
                 lb0.Visible = true;
@@ -212,7 +232,7 @@ namespace DoAnCK
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (btnBuble.Checked)
+            if (btnBubble.Checked)
                 threadBubble.Abort();
             else if (btnMerge.Checked)
                 threadMerge.Abort();
