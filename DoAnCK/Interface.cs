@@ -232,12 +232,9 @@ namespace DoAnCK
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (btnBubble.Checked)
-                threadBubble.Abort();
-            else if (btnMerge.Checked)
-                threadMerge.Abort();
-            else if (btnRadix.Checked)
-                threadRadix.Abort();
+            threadBubble.Abort();
+            threadMerge.Abort();
+            threadRadix.Abort();
         }
     }
 }
